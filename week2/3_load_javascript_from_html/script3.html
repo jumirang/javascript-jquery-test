@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- head 안에 script 태그 존재 시 : script 태그 해석, html 렌더링 지연 (사용자 입장에선 하얀 화면만 봄) -->
+	<script>
+		// 브라우저 onload : 현재 웹페이지의 모든 코드가 다 읽히고 (필요한 script, img 다운완료) 완성되었을 때, 웹브라우저는 window 객체의 onload를 호출하도록 약속됨
+		/*window.onload = function() {
+			var hw = document.getElementById('hw');		// 웹브라우저는 순차적으로 읽는데, 'hw' id를 가진 element를 읽지 못하여 null을 갖게 됨
+			hw.addEventListener('click', function() {
+				alert('Hello world');
+			})
+		}*/
+	</script>
+</head>
+<body>
+	<input type="button" id="hw" value="Hello world" />
+	<script src="./script2.js"></script>	<!-- 사용자 입장에서는 훨씬 빠르게 페이지 로드되는 것을 제공
+	       									body 태그 밑에 script 외부파일 태그 위치 시키는게 바람직한 방법 -->
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<body>
+	<input type="button" id="hw" value="Hello world" />
+	<script type="text/javascript">
+		/*
+			.script tag안에 JavaScript 코드 존재
+			.브라우저는 script tag를 만나면 JavaScript 문법에 따라 해석 실행
+			.script tag를 통해 html, javascript 코드 구분
+			.script tag는 HTML 문법
+			.정보와 제어 구분됨
+		*/
+
+		var hw = document.getElementById('hw');
+		hw.addEventListener('click', function() {
+			alert('Hello world');
+		})
+	</script>
+</body>
+</html>

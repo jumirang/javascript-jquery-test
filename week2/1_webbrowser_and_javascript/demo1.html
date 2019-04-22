@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style type="text/css">
+		#selected {
+			color: red;
+		}
+		.dark {	/* .은 class 의미 */
+			background-color: black;
+			color: white;
+		}
+		.dark #selected {	/* dark 클래스의 id값이 selected인 태그 */
+			color: yellow;
+		}
+	</style>
+</head>
+<body> 
+	<ul>
+		<li>HTML</li>
+		<li>CSS</li>
+		<li id="selected">JavaScript</li>
+	</ul>
+
+	<input type="button" value="dark" onclick="document.body.className='dark';" />
+	<!-- document 문서의 body 태그의 클래스 이름값으로 dark를 준다 
+		<body> -> <body class="dark"> 효과를 줌
+	-->
+</body>
+</html>
