@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<h1>심플 메모</h1>
+<h3>메모를 입력하세요.</h3>
+<input type="text" name="memoInput" id="memoInput">
+<button onclick="saveMemo()">저장</button>
+
+<script type="text/javascript">
+	var memoList = [];
+
+	function saveMemo() {
+		var memoInput = document.getElementById("memoInput");
+
+		var memo = {
+			'date': new Date(),
+			'memoVal': memoInput.value
+		};
+		memoList.push(memo);
+
+		var output = "";
+		for (var i in memoList) {
+			output += (memoList[i].date + " : " + memoList[i].memoVal + "\n");
+		}
+
+		alert(output);
+		memoInput.value = "";
+	}
+</script>
+</body>
+</html>
