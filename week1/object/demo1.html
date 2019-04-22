@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+<ul>	<!-- 열리는 태그 : 암것도 없음 -->
+<script type="text/javascript">
+	/* 	
+		객체 : 데이터를 담는 그릇
+		객체 {} : key/value // new Object()로도 생성 가능함
+		배열 [] : 순서
+		객체 내 인덱스[] 형태로 데이터 접근 가능함
+	*/
+	var grades = {'egoing':10, 'k8805':6,'sorialgi':80};
+	for (key in grades) {	// for in loop
+		document.write("<li>key : " + key + ", value : " + grades[key] + "</li>");
+	}
+
+	var grades2 = {	// list 데이터와 show 함수를 (서로 연관됨) grade2 객체 그릇에 담음 (객체 지향)
+		'list' : {'egoing':10, 'k8805':6,'sorialgi':80},
+		'show' : function() {
+			alert('Hello world');
+
+			for (var name in this.list) {
+				console.log(name, this.list[name]);
+			}
+			// console.log(this.list);	// this는 show 함수를 소유하고 있는 약속된 grades2 객체
+		}
+	};
+	alert(grades2['list']['egoing']);	// alert(grades2.list.egoing);
+	grades2.show(); // grades2['show']();
+
+</script>
+</ul>	<!-- 닫히는 태그 : / 시작 -->
+
+</body>
+</html>

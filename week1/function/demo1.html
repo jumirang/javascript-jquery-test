@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<script type="text/javascript">
+	/*
+	function numbering(){
+		i = 0;
+	 	while(i < 10){
+	 		document.write(i + "<br />");
+	 		i += 1;
+	 	} 
+	}
+	numbering();
+	*/
+	/*	함수 사용 이유
+		-재사용성
+		-유지보수성
+		-가독성 	*/
+
+	// 함수 입력
+	/*
+	function get_member1() {
+		return 'egoing';
+	}
+	function get_member2() {
+		return 'k8805';
+	}
+	alert(get_member1());
+	alert(get_member2());
+	*/
+
+	// 함수 출력
+	/*
+	function get_argument(arg){	// arg : 매개변수 (parameter)
+	 	return arg * 1000;
+	}
+	alert(get_argument(1));	// 1 : 인자 (argument)
+	alert(get_argument(2));
+	*/
+
+	/*
+	function get_arguments(arg1, arg2){
+		return arg1 + arg2;
+	}
+	alert(get_arguments(10, 20));
+	alert(get_arguments(20, 30));
+	*/
+
+	var numbering = function(){
+		i = 0;
+		while(i < 10){
+			document.write(i);
+			i += 1;
+		} 
+	}
+	numbering();
+
+	document.write("<br />");
+
+	(function(){
+		i = 0;
+		while(i < 10){
+			document.write(i);
+			i += 1;
+		} 
+	})();	// 익명 함수 (이름이 없고 바로 실행. 일회성 목적.)
+
+</script>
+</body>
+</html>
