@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<body>
+<ul>
+	<li>HTML</li>
+	<li>CSS</li>
+	<li id="active">JavaScript</li>
+</ul>
+<script>
+	console.group('before');	// 로그를 그룹화 (before 이름)
+	var lis = document.getElementsByTagName('li');
+	for(var i = 0; i < lis.length; i++){
+	 console.log(lis[i]);
+	}
+	console.groupEnd();
+	console.group('after');		// 로그를 그룹화 (after 이름)
+	lis[1].parentNode.removeChild(lis[1]);	// lis[1] element 삭제
+	for(var i = 0; i < lis.length; i++){
+	 console.log(lis[i]);
+	}
+	console.groupEnd();
+</script>
+</body>
+</html>

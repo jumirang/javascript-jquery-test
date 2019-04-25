@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<body>
+<ul>
+	<li>HTML</li>
+	<li>CSS</li>
+	<li id="active">JavaScript</li>
+</ul>
+<script>
+	var li = document.getElementById('active');
+	console.log(li.constructor.name);	// HTMLLIElement (실행결과가 하나인 경우)
+
+	var lis = document.getElementsByTagName('li');
+	console.log(lis.constructor.name);	// HTMLCollection (실행결과가 복수인 경우. 유사배열.)
+</script>
+</body>
+</html>

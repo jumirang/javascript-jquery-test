@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<body>
+<ul>
+	<li>HTML</li>
+	<li>CSS</li>
+	<li>JavaScript</li>
+</ul>
+<script>
+	var lis = document.getElementsByTagName('li');
+
+	for(var i=0; i < lis.length; i++){
+		lis[i].style.color = 'red'; // <li style="color: red">와 같은 효과
+	}
+</script>
+</body>
+</html>
