@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<h1>심플 메모</h1>
+<p>
+<h3>메모를 입력하세요.</h3>
+<input type="text" name="memoInput" id="memoInput">
+<button onclick="saveMemo()">저장</button>
+</p>
+<p>
+<table id="memoTable">
+	<tr>
+		<th>날짜</th>
+		<th>메모</th>
+	</tr>
+</table>
+</p>
+<script type="text/javascript">
+	var memoList = [];
+
+	function saveMemo() {
+		var memoInput = document.getElementById("memoInput");
+
+		var date = new Date();
+		var formatedDate = date.getFullYear() + '/' + (date.getMonth() + 1) + '/' + date.getDate() + ' ' 
+						+ date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds();
+
+		var memo = {
+			date: formatedDate,
+			memoVal: memoInput.value
+		};
+		memoList.push(memo);
+
+		//showAlert();
+		showTable(memo);
+
+		memoInput.value = "";
+	}
+
+	function showAlert() {
+		var output = "";
+		for (var i in memoList) {
+			output += (memoList[i].date + " : " + memoList[i].memoVal + "\n");
+		}
+		alert(output);
+	}
+
+	function showTable(memo) {
+		var memoTable = document.getElementById("memoTable");
+
+		var td1 = document.createElement("TD");
+		td1.innerHTML = memo.date;
+		var td2 = document.createElement("TD");
+		td2.innerHTML = memo.memoVal;
+
+		var tr = document.createElement("TR");
+		tr.appendChild(td1);
+		tr.appendChild(td2);
+
+		memoTable.appendChild(tr);
+	}
+</script>
+</body>
+</html>

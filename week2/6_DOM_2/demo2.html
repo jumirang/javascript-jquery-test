@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<body>
+<ul>
+	<li>html</li>
+	<li>css</li>
+	<li>JavaScript</li>
+</ul>
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script>
+	// map은 jQuery 객체의 엘리먼트를 하나씩 순회한다. 이 때 첫번째 인자로 전달된 함수가 호출되는데 첫번째 인자로 엘리먼트의 인덱스, 두번째 인자로 엘리먼트 객체(DOM)이 전달된다.
+	var li = $('li');
+	li.map(function(index, elem){
+		console.log(index, elem);
+		$(elem).css('color', 'red');
+	})
+</script>
+</body>
+</html>

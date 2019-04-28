@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<body>
+<ul>
+	<li class="marked">html</li>
+	<li>css</li>
+	<li id="active">JavaScript
+		<ul>
+			<li>JavaScript Core</li>
+			<li class="marked">DOM</li>
+			<li class="marked">BOM</li>
+		</ul>
+	</li>
+</ul>
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script>
+	//$( ".marked", "#active").css( "background-color", "red" );
+	//$( "#active .marked").css( "background-color", "red" );	// 위와 같은 결과
+	$('#active').find('.marked').css( "background-color", "red" );	// 위와 같은 결과
+
+	// find를 쓰는 이유는 체인을 끊지 않고 작업의 대상을 변경하고 싶을 때 사용한다. 기본 예제를 아래와 같이 변경해보자.
+	$('#active').css('color','blue').find('.marked').css( "background-color", "red" );
+	// 즉 li.item-li 엘리먼트에 해당하는 모든 엘리먼트의 전경색을 파란색으로 변경한 후에 li 엘리먼트만을 조회해서 배경색을 붉은색으로 지정하고 있다.
+	// find를 너무 복잡하게 사용하면 코드를 유지보수하기 어렵게 된다.
+</script>
+
+</body>
+</html>

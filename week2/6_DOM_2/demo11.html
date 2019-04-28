@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<body>
+<a id="target" href="http://opentutorials.org">opentutorials</a>
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script>
+	var t = $('#target');
+	console.log(t.attr('href')); //http://opentutorials.org
+	t.attr('title', 'opentutorials.org'); // title 속성의 값을 설정한다.
+	t.removeAttr('title'); // title 속성을 제거한다.
+</script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<body>
+<ul>
+	<li class="marked">html</li>
+	<li>css</li>
+	<li id="active">JavaScript
+		<ul>
+			<li>JavaScript Core</li>
+			<li class="marked">DOM</li>
+			<li class="marked">BOM</li>
+		</ul>
+ 	</li>
+</ul>
+<script>
+	var list = document.getElementsByClassName('marked');	// document 문서 전체에서 조회
+	console.group('document');
+	for(var i=0; i<list.length; i++){
+		console.log(list[i].textContent);
+	}
+	console.groupEnd();
+
+	console.group('active');
+	var active = document.getElementById('active'); 
+	var list = active.getElementsByClassName('marked');		// active 엘리먼트의 하위에서 조회
+	for(var i=0; i<list.length; i++){
+		console.log(list[i].textContent);
+	}
+	console.groupEnd();
+</script>
+</body>
+</html>

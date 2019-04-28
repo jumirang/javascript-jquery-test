@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<h1>심플 메모</h1>
+<p>
+<h3>메모를 입력하세요.</h3>
+<input type="text" name="memoText" id="memoText" />
+<button onclick="saveMemo()">저장</button>
+</p>
+<p>
+<table id="memoTable">
+	<tr>
+		<th>날짜</th>
+		<th>메모</th>
+	</tr>
+</table>
+</p>
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script type="text/javascript">
+	var memoId = 0;
+
+	$(document).ready(function() {
+		$.ajax({
+			url: 'https://js-basic.herokuapp.com/minseok.hwangbo/notes',
+			method: 'GET',
+			dataType: 'json',
+			success: function(data) {
+				for (var i in data.results) {
+					var memo = data.results[i];
+					showTable(memo.id, memo.date, memo.note);
+				}
+			}
+		});
+	});
+
+	function saveMemo() {
+		var memoText = document.getElementById('memoText');
+
+		var date = new Date();
+		var formatedDate = date.getFullYear() + '/' + (date.getMonth() + 1) + '/' + date.getDate() + ' ' 
+						+ date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds();
+
+		$.ajax({
+			url: 'https://js-basic.herokuapp.com/minseok.hwangbo/notes',
+			method: 'POST',
+			dataType: 'json',
+			data: {
+				id: memoId,
+				note: memoText.value,
+				date: formatedDate
+			},
+			success: function(data) {
+				showTable(memoId, formatedDate, memoText.value);
+				memoId++;
+				memoText.value = '';
+			}
+		});
+	}
+
+	function deleteMemo(id, callback) {
+		$.ajax({
+			url: 'https://js-basic.herokuapp.com/minseok.hwangbo/notes/' + id,
+			method: 'DELETE',
+			dataType: 'json',
+			success: function(data) {
+				console.log('delete data: ' + JSON.stringify(data));
+				callback();
+			}
+		});
+	}
+
+	function showTable(id, date, note) {
+		var memoTable = document.getElementById('memoTable');
+
+		var td1 = document.createElement('td');
+		td1.innerHTML = date;
+		var td2 = document.createElement('td');
+		td2.innerHTML = note;
+
+		var btn = document.createElement("button");
+		btn.setAttribute('id', id);
+		btn.innerHTML = '삭제';
+		btn.addEventListener('click', function (event) {
+			var trl = memoTable.getElementsByTagName('tr');
+			var targetId = event.target.id;
+			for (var i in trl) {
+				if (targetId === trl[i].id) {
+					deleteMemo(targetId, function() {
+						memoTable.removeChild(trl[i]);
+					});
+					break;
+				}
+			}
+		});
+
+		var tr = document.createElement('tr');
+		tr.setAttribute('id', id);
+		tr.appendChild(td1);
+		tr.appendChild(td2);
+		tr.appendChild(btn);
+
+		memoTable.appendChild(tr);
+	}
+</script>
+</body>
+</html>

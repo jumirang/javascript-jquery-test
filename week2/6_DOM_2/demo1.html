@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<body>
+	<ul>
+	 <li>html</li>
+	 <li>css</li>
+	 <li>JavaScript</li>
+	</ul>
+	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+	<script>
+		// jQuery 객체에는 조회된 엘리먼트가 담겨 있다. jQuery 객체는 일종의 유사배열의 형태로 조회된 엘리먼트를 가지고 있기 때문에 배열처럼 사용해서 엘리먼트를 가져올 수 있다.
+		console.log($('li').length);
+		console.log($('li')[0]);
+		var li = $('li');
+
+		for(var i=0; i<li.length; i++){
+			console.log(li[i]);
+		}
+
+		// 한가지 주의할 것은 li[i]의 값은 해당 엘리먼트에 대한 jQuery 객체가 아니라 DOM 객체라는 것이다. 따라서 jQuery의 기능을 이용해서 이 객체를 제어하려면 jQuery 함수를 이용해야 한다.
+
+		for(var i=0; i<li.length; i++){
+	 		$(li[i]).css('color', 'red');
+		}
+	</script>
+</body>
+</html>
+
+

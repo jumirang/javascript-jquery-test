@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<body>
+<ul>
+ <li>html</li>
+ <li>css</li>
+ <li id="active">JavaScript</li>
+</ul>
+<script>
+var active = document.getElementById('active');
+// class 값을 변경할 때는 프로퍼티의 이름으로 className을 사용한다.
+active.className = "important current";
+console.log(active.className);
+// 클래스를 추가할 때는 아래와 같이 문자열의 더한다.
+active.className += " readed"
+</script>
+</body>
+</html>
